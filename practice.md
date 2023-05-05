@@ -1,8 +1,11 @@
-flowChart TD 
-A[ReactNotes] --> const person = {
+# Export : the keyword
+
+```
+const person = {
     name: 'John Doe'
 }
 export default person  
+```
 
 // default keyword means that this is the default export of this file
 
@@ -56,6 +59,7 @@ class Person {
 const print = (person) => {
     console.log(person.name)
 }
+
 // ES6 classes are executed in strict mode because they are executed in the body of a function and all the code in the body of a function is executed in strict mode.
 
 //==========================
@@ -204,8 +208,28 @@ Two ways to create React Components.
     function Welcome(props) {
         return <h1>Hello, {props.name}</h1>;
     }
-    explaination : 
-    above function is a React component because it accepts a single "props" object argument with data and returns a React element.
-    such components are called "function components" because they are literally JavaScript functions.
+    explanation : 
+    * above function is a React component because it accepts a single "props" object argument with data and returns a React element.
+      * such components are called "function components" because they are literally JavaScript functions.
+      * about stateless functional components :
+      * if the function component does not have state then it is called "stateless functional component".
+      * stateless functional components are more efficient than class components.
+        - why ? because they don't have state and lifecycle methods.
+        - why ? because they don't have "this" keyword.
+        - why ? - because they don't have "this" keyword they :-
+                  - don't have to bind the event handlers.
+                  - don't have to use arrow functions.
+  
 // 2. Class Components
+    example :
+    class Welcome extends React.Component {
+        render() {
+            return <h1>Hello, {this.props.name}</h1>;
+        }
+    }
+    explanation :
+    above function is a React component because it accepts a single "props" object argument with data and returns a React element.
+    such components are called "class components" because they are classes created with ES6 class syntax.
+
+//=================================================
 
