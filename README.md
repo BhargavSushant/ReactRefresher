@@ -1,6 +1,4 @@
-# ReactRefresher
-{
-    name:"kapil",
-    age:"200",
-    
-}
+# React Refresher
+
+### Create a Controlled Input
+ 
