@@ -121,7 +121,7 @@ const element = React.createElement(
     'Hello, world!'
 );
 
->==========================
+==========================
 > ES6 Classes
 >==========================
 > ES6 classes are just syntactical sugar over the prototype based inheritance
