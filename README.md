@@ -51,4 +51,63 @@ class ControlledInput extends React.Component {
 }
 
 // a joke can harm you if you let it
+``` 
+
+
+
+>
+---
+### Create a Controlled Form
+(https://learn.freecodecamp.org/front-end-libraries/react/create-a-controlled-form)
+
+
+
+>
+### Pass State as Props to Child Components
+(https://learn.freecodecamp.org/front-end-libraries/react/pass-state-as-props-to-child-components)
+
+
+
+This pattern illustrates some important paradigms in React.  
+* The first is ``` UNIDIRECTIONAL DATA FLOW. ```
+  * State flows in one direction down the tree of your application's components, from the stateful parent component to child components. The child components only receive the state data they need. 
+* The second is that ```complex stateful apps can be broken down into just a few, or maybe a single, stateful component.```  
+  *  The rest of your components simply receive state from the parent as props, and render a UI from that state. It begins to create a **separation** where **state management** is handled in one part of code and **UI rendering** in another. 
+This principle of separating state logic from UI logic is one of React's key principles. When it's used correctly, it makes the design of complex, stateful applications much easier to manage.
+
+The MyApp component is stateful and renders a Navbar component as a child. Pass the name property in its state down to the child component, then show the name in the h1 tag that's part of the Navbar render method. name should appear after the text Hello, my name is:.
+
+```jsx
+class MyApp extends React.Component {//parent
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'CamperBot'
+    }
+  }
+  render() {
+    return (
+       <div>
+         {/* Change code below this line */}
+         <Navbar name={this.state.name}/>
+         {/* Change code above this line */}
+       </div>
+    );
+  }
+};
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+    <div>
+      {/* Change code below this line */}
+      <h1>Hello, my name is: {this.props.name} </h1>
+      {/* Change code above this line */}
+    </div>
+    );
+  }
+};
 ```
