@@ -1,6 +1,20 @@
+<!-- vscode-markdown-toc -->
+	* 1. [Create a Controlled Input](#CreateaControlledInput)
+	* 2. [Create a Controlled Form](#CreateaControlledForm)
+	* 3. [Pass State as Props to Child Components](#PassStateasPropstoChildComponents)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+
 # React Refresher
 
-### Create a Controlled Input
+
+
+###  1. <a name='CreateaControlledInput'></a>Create a Controlled Input
 (https://learn.freecodecamp.org/front-end-libraries/react/create-a-controlled-input) 
 
 In a web application, form control elements like text input fields (input) and text areas (textarea) have their own state that is managed by the browser in the Document Object Model (DOM). This means that as the user types or modifies the content in these input fields, the changes are directly reflected in the DOM.
@@ -57,13 +71,13 @@ class ControlledInput extends React.Component {
 
 >
 ---
-### Create a Controlled Form
+###  2. <a name='CreateaControlledForm'></a>Create a Controlled Form
 (https://learn.freecodecamp.org/front-end-libraries/react/create-a-controlled-form)
 
 
 
 >
-### Pass State as Props to Child Components
+###  3. <a name='PassStateasPropstoChildComponents'></a>Pass State as Props to Child Components
 (https://learn.freecodecamp.org/front-end-libraries/react/pass-state-as-props-to-child-components)
 
 
@@ -110,4 +124,13 @@ class Navbar extends React.Component {
     );
   }
 };
+```
+
+### 4. Pass a Callback as Props
+
+>
+> 
+
+```jsx
+
 ```
