@@ -64,7 +64,6 @@ class ControlledInput extends React.Component {
   }
 }
 
-// a joke can harm you if you let it
 ``` 
 
 
@@ -129,8 +128,93 @@ class Navbar extends React.Component {
 ### 4. Pass a Callback as Props
 
 >
+*  In React, you can pass **state as props** to **child components**.  
+*  Props can include  1.  data / 2. handler functions / 3. methods defined on a React component.
+* Passing methods allows child components to interact with their parent components.
+* Methods are passed as regular props and can be accessed using this.props in the child component.
 > 
+#### TASK (4.0): 
+* MyApp is the parent component that renders GetInput and RenderInput child components.
+* To add GetInput to the render method in MyApp, pass it a prop called input assigned to inputValue from MyApp's state.
+* Create a prop called handleChange in MyApp.
+* Pass the input handler handleChange to the handleChange prop in GetInput.
+* Next, add RenderInput to the render method in MyApp,
+*  then create a prop called input and pass the inputValue from state to it.
+*   Once you are finished you will be able to type in the input field in the GetInput component, which then calls the handler method in its parent via props. 
+*   This updates the input in the state of the parent, which is passed as props to both children. 
+*   Observe how the data flows between the components and how the single source of truth remains the state of the parent component. 
+*   Admittedly, this example is a bit contrived, but should serve to illustrate how data and callbacks can be passed between React components.
+
 
 ```jsx
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+        { /* Change code below this line */ }
+<GetInput input={this.state.inputValue} handleChange={this.handleChange} />
+<RenderInput input={this.state.inputValue}/>
+        { /* Change code above this line */ }
+       </div>
+    );
+  }
+};
 
+class GetInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Get Input:</h3>
+        <input
+          value={this.props.input}
+          onChange={this.props.handleChange}/>
+      </div>
+    );
+  }
+};
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p>
+      </div>
+    );
+  }
+};
 ```
+
+### 5. Use the Lifecycle Method componentWillMount
+
+> Lifecycle Methods or **Hooks**: React components have several special methods that provide opportunities to perform actions at specific points in the lifecycle of a component. 
+> * Hooks allow you to catch components at certain points in time. This can be before they are rendered, before they update, before they receive props, before they unmount, and so on.  
+> 
+* main lifecycle methods:
+  * componentWillMount()
+  * componentDidMount()
+  * shouldComponentUpdate()
+  * componentDidUpdate()
+  * componentWillUnmount() 
+
+Note: The componentWillMount Lifecycle method will be deprecated in a future version of 16.X and removed in version 17. Learn more in this article
+
+The componentWillMount() method is called before the render() method when a component is being mounted to the DOM. Log something to the console within componentWillMount() - you may want to have your browser console open to see the output.
